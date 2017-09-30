@@ -304,7 +304,7 @@ public class HackAThonGui extends Application implements EventHandler {
 //        JOptionPane.showMessageDialog(null, "maxy = " + maxy);
         int rand1, rand2;
         rand1 = (int) (Math.random() * (max + 1) + 1);
-        rand2 = (int) (Math.random() * maxy + 1);
+        rand2 = (int) (Math.random() * (maxy + 1) + 1);
 //        JOptionPane.showMessageDialog(null, "rand1 = " + rand1);
 //        JOptionPane.showMessageDialog(null, "rand2 = " + rand2);
         if (max == 0) {
