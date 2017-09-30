@@ -48,7 +48,7 @@ public class HackAThonGui extends Application implements EventHandler {
     public void start(Stage stage) {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 20; j++) {
-                names[i][j] = "country" + i + j;
+                names[i][j] = i + " - " + j;
             }
         }
         txtName = new Label("Random Name");
@@ -79,16 +79,16 @@ public class HackAThonGui extends Application implements EventHandler {
 //        final Image image2 = new Image(getClass().getResourceAsStream(link));
 //        imv.setImage(image2);
         //CheckBoxes
-        cb1 = new CheckBox("Second");
+        cb1 = new CheckBox("one");
         //cb1.setGraphic(image);
-        cb2 = new CheckBox("Second");
-        cb3 = new CheckBox("Second");
-        cb4 = new CheckBox("Second");
-        cb5 = new CheckBox("Second");
-        cb6 = new CheckBox("Second");
-        cb7 = new CheckBox("Second");
-        cb8 = new CheckBox("Second");
-        cb9 = new CheckBox("Second");
+        cb2 = new CheckBox("two");
+        cb3 = new CheckBox("three");
+        cb4 = new CheckBox("four");
+        cb5 = new CheckBox("five");
+        cb6 = new CheckBox("six");
+        cb7 = new CheckBox("seven");
+        cb8 = new CheckBox("eight");
+        cb9 = new CheckBox("nine");
 
         HBox hboxT = new HBox(rb3, rb1, rb2);
         HBox hboxB = new HBox(btnStart, txtName, btnExit);
@@ -228,77 +228,91 @@ public class HackAThonGui extends Application implements EventHandler {
             arrayOfInt[m] = 1;
             Imax = 1;
             m++;
+            max = 0;
         }
         if (cb2.isSelected() == true) {
             arrayOfInt[m] = 2;
             Imax = 2;
             m++;
+            max = 1;
         }
         if (cb3.isSelected() == true) {
             arrayOfInt[m] = 3;
             Imax = 3;
             m++;
+            max = 2;
         }
         if (cb4.isSelected() == true) {
             arrayOfInt[m] = 4;
             Imax = 4;
             m++;
+            max = 3;
         }
         if (cb5.isSelected() == true) {
             arrayOfInt[m] = 5;
             Imax = 5;
             m++;
+            max = 4;
         }
         if (cb6.isSelected() == true) {
             arrayOfInt[m] = 6;
             Imax = 6;
             m++;
+            max = 5;
         }
         if (cb7.isSelected() == true) {
             arrayOfInt[m] = 7;
             Imax = 7;
             m++;
+            max = 6;
         }
         if (cb8.isSelected() == true) {
             arrayOfInt[m] = 8;
             Imax = 8;
             m++;
+            max = 7;
         }
         if (cb9.isSelected() == true) {
             arrayOfInt[m] = 9;
             Imax = 9;
+            m++;
+            max = 8;
 
         }
-//        if (m == 0) {
-//            for (int p = 0; p < 10; p++) {
-//                arrayOfInt[p] = p + 1;
-//            }
-//        }
 
-        m = 0;
-        Imax = 1;
+        //if check boxes are selected
+        if (m == 0) {
+            max = 1;
+        }
+
+//        m = 0;
+//        Imax = 1;
         String arrayOfNames[][] = new String[9][20];
-        JOptionPane.showMessageDialog(null, "start of loop");
+        // JOptionPane.showMessageDialog(null, "start of loop");
 
         for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 20; j++) {
+            for (int j = x; j < y; j++) {
                 arrayOfNames[i][j] = names[i][j];
-
+                System.out.println(arrayOfNames[i][j]);
+                
             }
+
         }
-        max = 9;
-        maxy = 20;
-        
+        maxy = y;
+
 //        JOptionPane.showMessageDialog(null, "max = " + max);
 //        JOptionPane.showMessageDialog(null, "maxy = " + maxy);
-
         int rand1, rand2;
-        rand1 = (int) (Math.random() * max + 1);
-        JOptionPane.showMessageDialog(null,"rand1 = " +rand1);
+        rand1 = (int) (Math.random() * (max + 1) + 1);
         rand2 = (int) (Math.random() * maxy + 1);
-        JOptionPane.showMessageDialog(null, "rand2 = "+rand2);
-        found = arrayOfNames[rand1 - 1][rand2 - 1];
-
+//        JOptionPane.showMessageDialog(null, "rand1 = " + rand1);
+//        JOptionPane.showMessageDialog(null, "rand2 = " + rand2);
+        if (max == 0) {
+            found = arrayOfNames[rand1][rand2 - 1];
+        } else {
+            found = arrayOfNames[rand1 - 1][rand2 - 1];
+        }
+        found = arrayOfNames[max + 1][rand2 - 1];
         return found;
     }
 
